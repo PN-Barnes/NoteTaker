@@ -23,7 +23,7 @@
       <a class="navbar-brand" href="/">Note Taker </a>
       <div class="icons">
         <i class="fas fa-save text-light save-note"></i>
-        <i class="fas fa-plus text-light new-note"></i>
+        <i class="fas fa-plus text-light new-note" id="addButton"></i>
       </div>
     </nav>
     <div class="container-fluid">
@@ -39,8 +39,9 @@
             placeholder="Note Title"
             maxlength="28"
             type="text"
+            id="noteTitle"
           />
-          <textarea class="note-textarea" placeholder="Note Text"></textarea>
+          <textarea class="note-textarea" placeholder="Note Text" id="noteText"></textarea>
         </div>
       </div>
     </div>
