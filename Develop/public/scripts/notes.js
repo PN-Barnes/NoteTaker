@@ -14,6 +14,8 @@ const addNote = event => {
         note: note
     
     }
+
+    postNote(newNote)
 }
 
 
