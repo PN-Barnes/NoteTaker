@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 // GET route for homepage
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  res.sendFile(path.join(__dirname, 'index.html'))
 })
 
 // GET route for Notes Page
@@ -22,7 +22,7 @@ app.get('/notes', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  res.sendFile(path.join(__dirname, 'index.html'))
 })
 
 app.listen(PORT, () =>
