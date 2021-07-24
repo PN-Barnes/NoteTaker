@@ -1,6 +1,14 @@
+const noteBox = document.getElementById('noteBox')
 const noteTitle = document.getElementById('noteTitle')
 const noteText = document.getElementById('noteText')
 const addButton = document.getElementById('addButton')
+
+// FUNCTION CREATE NOTE CARD WHEN IT IS RETRIEVED FROM SERVER 
+const createNote = (note) => {
+
+  const 
+}
+
 
 // GET THE NOTES THAT EXIST WITHIN THE SERVER
 const getNotes = () => 
@@ -17,24 +25,24 @@ const getNotes = () =>
       console.error('Error:', error)
     })
 
-const postNote = (tip) =>
+const postNote = (note) =>
 fetch('http://localhost:3001/api/notes', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify(tip),
+  body: JSON.stringify(note),
 })
   .then((response) => response.json())
   .then((data) => {
     alert(data);
-    createCard(tip);
+    createNote(note);
   })
   .catch((error) => {
     console.error('Error:', error);
   });
 
-
+getNotes().then((data) => data.forEach((note) => createNote(note) ))
 
 const addNote = event => {
   event.preventDefault();
