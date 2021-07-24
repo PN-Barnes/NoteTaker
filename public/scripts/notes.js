@@ -1,18 +1,28 @@
-const noteBox = document.getElementById('noteBox')
-const noteTitle = document.getElementById('noteTitle')
-const noteText = document.getElementById('noteText')
-const noteCard = document.getElementById('noteCard')
-const noteList = document.getElementById('noteList')
-const addButton = document.getElementById('addButton')
+// const noteBox = document.getElementById('noteBox')
+// const noteTitle = document.getElementById('noteTitle')
+// const noteText = document.getElementById('noteText')
+// const noteCard = document.getElementById('noteCard')
+// const noteList = document.getElementById('noteList')
+// const addButton = document.getElementById('addButton')
+
+ const noteTitle = document.querySelector('.note-title');
+ const noteText = document.querySelector('.note-textarea');
+ const saveNoteBtn = document.querySelector('.save-note');
+ const newNoteBtn = document.querySelector('.new-note');
+ const noteList = document.querySelectorAll('.list-container .list-group');
 
 // FUNCTION CREATE NOTE CARD WHEN IT IS RETRIEVED FROM SERVER 
 const createNote = (note) => {
+  const listItem = document.createElement('li')
 
-  // CREATE THE CARD 
-  const card = document.createElement('div');
-  card.classList.add('')
+  listItem.setAttribute('class', 'list-group-item')
+
+  listItem.innerHTML = `<h4>${note.noteTitle}</h4>
+                        <p>${note.note}</p>
+                        `
+
+  noteList.appendChild(listItem)
 }
-
 
 // GET THE NOTES THAT EXIST WITHIN THE SERVER
 const getNotes = () => 
@@ -40,28 +50,29 @@ fetch('http://localhost:3001/api/notes', {
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
-    //createNote(note);
+    createNote(note);
   })
   .catch((error) => {
     console.error('Error:', error);
   });
 
-//getNotes().then((data) => data.forEach((note) => createNote(note) ))
-
-const addNote = event => {
-  console.log('Add Note submitted');
   
-  const noteName = noteTitle.value;
-  const note = noteText.value;
-
-  const newNote = {
+  const addNote = event => {
+    event.preventDefault();
+    console.log('Add Note submitted');
+    
+    const noteName = noteTitle.value;
+    const note = noteText.value;
+    
+    const newNote = {
       noteTitle: noteName,
       note: note
-  
+      
+    }
+    
+    postNote(newNote)
   }
-
-  postNote(newNote)
-}
-
-
-addButton.addEventListener('click', addNote)
+  
+  
+  getNotes().then((data) => data.forEach((note) => createNote(note) ))
+  saveNoteBtn.addEventListener('click', addNote)
