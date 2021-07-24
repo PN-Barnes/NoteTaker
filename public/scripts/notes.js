@@ -47,7 +47,7 @@ fetch('http://localhost:3001/api/notes', {
   },
   body: JSON.stringify(note),
 })
-  .then((response) => response.json())
+  .then((response) => response.json()
   .then((data) => {
     console.log(data);
     createNote(note);
