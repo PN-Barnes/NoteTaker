@@ -16,11 +16,11 @@
         <i class="fas fa-plus text-light new-note" id="addButton"></i>
       </div>
     </nav>
-    <div class="container-fluid" id="noteBox">
+    <div class="container-fluid" >
       <div class="row">
-        <div class="col-4 list-container">
-          <div class="card">
-            <ul class="list-group"></ul>
+        <div class="col-4 list-container" id="noteBox">
+          <div class="card" id="noteCard">
+            <ul class="list-group" id="noteList"></ul>
           </div>
         </div>
         <div class="col-8">
@@ -36,5 +36,6 @@
       </div>
     </div>
     <script src="/assets/js/index.js"></script>
+    <script src="./scripts/notes.js"></script>
   </body>
 </html>

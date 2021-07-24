@@ -1,12 +1,16 @@
 const noteBox = document.getElementById('noteBox')
 const noteTitle = document.getElementById('noteTitle')
 const noteText = document.getElementById('noteText')
+const noteCard = document.getElementById('noteCard')
+const noteList = document.getElementById('noteList')
 const addButton = document.getElementById('addButton')
 
 // FUNCTION CREATE NOTE CARD WHEN IT IS RETRIEVED FROM SERVER 
 const createNote = (note) => {
 
-  const 
+  // CREATE THE CARD 
+  const card = document.createElement('div');
+  card.classList.add('')
 }
 
 
@@ -35,17 +39,16 @@ fetch('http://localhost:3001/api/notes', {
 })
   .then((response) => response.json())
   .then((data) => {
-    alert(data);
-    createNote(note);
+    console.log(data);
+    //createNote(note);
   })
   .catch((error) => {
     console.error('Error:', error);
   });
 
-getNotes().then((data) => data.forEach((note) => createNote(note) ))
+//getNotes().then((data) => data.forEach((note) => createNote(note) ))
 
 const addNote = event => {
-  event.preventDefault();
   console.log('Add Note submitted');
   
   const noteName = noteTitle.value;
